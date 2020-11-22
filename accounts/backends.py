@@ -5,7 +5,7 @@ from django.core.exceptions import MultipleObjectsReturned
 
 class EmailBackend(ModelBackend):
     def authenticate(self, request, username=None, password=None, **kwargs):
-        ''' check username or email & password is a valid user '''
+        ''' check username or email & password is a valid user  '''
         try : 
             user = User.objects.get(
                 Q(username__iexact=username) |
