@@ -3,6 +3,7 @@ from django.utils.text import slugify
 from django.contrib.auth.models import User
 
 # Create your models here.
+
 JOB_TYPE = (
     ('Full time','Full time'),
     ('Part time','Part time'),
@@ -39,7 +40,7 @@ class Job(models.Model):      #table
     #slug
     slug = models.SlugField(blank=True, null=True)
     
-    
+    ## overriding save() method ##
     def save(self,*args,**kwargs):
         self.slug = slugify(self.title)
         super(Job,self).save(*args, **kwargs)
